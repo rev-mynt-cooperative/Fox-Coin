@@ -3,8 +3,8 @@
 // Copyright (c) 2011-2012 Litecoin Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef BITCOIN_SYNC_H
-#define BITCOIN_SYNC_H
+#ifndef FOXCOIN_SYNC_H
+#define FOXCOIN_SYNC_H
 
 #include <boost/thread/mutex.hpp>
 #include <boost/thread/recursive_mutex.hpp>

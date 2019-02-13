@@ -33,7 +33,7 @@ static void ipcThread(void* pArg)
     IMPLEMENT_RANDOMIZE_STACK(ipcThread(pArg));
 	
     // Make this thread recognisable as the GUI-IPC thread
-    RenameThread("bitcoin-gui-ipc");
+    RenameThread("foxcoin-gui-ipc");
 	
     try
     {
@@ -70,7 +70,7 @@ static void ipcThread2(void* pArg)
     }
 
     // Remove message queue
-    message_queue::remove(BITCOINURI_QUEUE_NAME);
+    message_queue::remove(FOXCOINURI_QUEUE_NAME);
     // Cleanup allocated memory
     delete mq;
 }
@@ -83,7 +83,7 @@ void ipcInit()
     unsigned int nPriority = 0;
 
     try {
-        mq = new message_queue(open_or_create, BITCOINURI_QUEUE_NAME, 2, MAX_URI_LENGTH);
+        mq = new message_queue(open_or_create, FOXCOINURI_QUEUE_NAME, 2, MAX_URI_LENGTH);
 
         // Make sure we don't lose any foxcoin: URIs
         for (int i = 0; i < 2; i++)
@@ -98,10 +98,10 @@ void ipcInit()
         }
 
         // Make sure only one instance is listening
-        message_queue::remove(BITCOINURI_QUEUE_NAME);
+        message_queue::remove(FOXCOINURI_QUEUE_NAME);
         delete mq;
 
-        mq = new message_queue(open_or_create, BITCOINURI_QUEUE_NAME, 2, MAX_URI_LENGTH);
+        mq = new message_queue(open_or_create, FOXCOINURI_QUEUE_NAME, 2, MAX_URI_LENGTH);
     }
     catch (interprocess_exception &ex) {
         printf("ipcInit() - boost interprocess exception #%d: %s\n", ex.get_error_code(), ex.what());

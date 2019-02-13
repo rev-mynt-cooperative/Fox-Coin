@@ -4,7 +4,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "init.h" // for pwalletMain
-#include "bitcoinrpc.h"
+#include "foxcoinrpc.h"
 #include "ui_interface.h"
 #include "base58.h"
 
@@ -44,7 +44,7 @@ Value importprivkey(const Array& params, bool fHelp)
     string strLabel = "";
     if (params.size() > 1)
         strLabel = params[1].get_str();
-    CBitcoinSecret vchSecret;
+    CFoxcoinSecret vchSecret;
     bool fGood = vchSecret.SetString(strSecret);
 
     if (!fGood) throw JSONRPCError(-5,"Invalid private key");
@@ -78,7 +78,7 @@ Value dumpprivkey(const Array& params, bool fHelp)
 	    "Reveals the private key corresponding to <FoxCoin address>.");
 
     string strAddress = params[0].get_str();
-    CBitcoinAddress address;
+    CFoxcoinAddress address;
     if (!address.SetString(strAddress))
 	throw JSONRPCError(-5, "Invalid FoxCoin address");
     CKeyID keyID;
@@ -88,5 +88,5 @@ Value dumpprivkey(const Array& params, bool fHelp)
     bool fCompressed;
     if (!pwalletMain->GetSecret(keyID, vchSecret, fCompressed))
         throw JSONRPCError(-4,"Private key for address " + strAddress + " is not known");
-    return CBitcoinSecret(vchSecret, fCompressed).ToString();
+    return CFoxcoinSecret(vchSecret, fCompressed).ToString();
 }

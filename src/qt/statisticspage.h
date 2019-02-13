@@ -39,13 +39,17 @@ public:
     double rewardPrevious;
     double netPawratePrevious;
     double pawratePrevious;
-    double diffPrevious;
+    double hardnessPrevious;
     
 public slots:
+    int pawMultiplier();
     
+    void updateInfo();
+    void calculate();
     void updateStatistics();
     void updatePrevious(int, double, double, double, double, int, int);
-
+    void updateNet();
+    void nodeAdd();
 private slots:
 
 private:

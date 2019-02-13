@@ -23,7 +23,7 @@
       </sizepolicy>
      </property>
      <property name="pixmap">
-      <pixmap resource="../bitcoin.qrc">:/images/about</pixmap>
+      <pixmap resource="../foxcoin.qrc">:/images/about</pixmap>
      </property>
     </widget>
    </item>
@@ -189,7 +189,7 @@ They are mined by verifying transactions, supporting the network.</string>
   </layout>
  </widget>
  <resources>
-  <include location="../bitcoin.qrc"/>
+  <include location="../foxcoin.qrc"/>
  </resources>
  <connections>
   <connection>

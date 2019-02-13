@@ -1,8 +1,8 @@
 #include "optionsdialog.h"
 #include "ui_optionsdialog.h"
 
-#include "bitcoinamountfield.h"
-#include "bitcoinunits.h"
+#include "foxcoinamountfield.h"
+#include "foxcoinunits.h"
 #include "monitoreddatamapper.h"
 #include "netbase.h"
 #include "optionsmodel.h"
@@ -88,7 +88,7 @@ OptionsDialog::OptionsDialog(QWidget *parent) :
         }
     }
 
-    ui->unit->setModel(new BitcoinUnits(this));
+    ui->unit->setModel(new FoxcoinUnits(this));
 
     connect(ui->connectSocks, SIGNAL(clicked(bool)), this, SLOT(showRestartWarning_Proxy()));
     connect(ui->lang, SIGNAL(activated(int)), this, SLOT(showRestartWarning_Lang()));
@@ -124,7 +124,7 @@ void OptionsDialog::setModel(OptionsModel *model)
         mapper->toFirst();
     }
 
-    // update the display unit, to not use the default ("BTC")
+    // update the display unit, to not use the default ("FOX")
     updateDisplayUnit();
 }
 
@@ -132,7 +132,7 @@ void OptionsDialog::setMapper()
 {
     /* Main */
     mapper->addMapping(ui->transactionFee, OptionsModel::Fee);
-    mapper->addMapping(ui->bitcoinAtStartup, OptionsModel::StartAtStartup);
+    mapper->addMapping(ui->foxcoinAtStartup, OptionsModel::StartAtStartup);
     mapper->addMapping(ui->detachDatabases, OptionsModel::DetachDatabases);
 
     /* Network */

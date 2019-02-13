@@ -23,7 +23,7 @@
       </sizepolicy>
      </property>
      <property name="pixmap">
-      <pixmap resource="../bitcoin.qrc">:/images/about</pixmap>
+      <pixmap resource="../foxcoin.qrc">:/images/about</pixmap>
      </property>
     </widget>
    </item>
@@ -145,7 +145,7 @@ Windows, Application Support for OSX, and your /foxcoin directory on *nix system
   </layout>
  </widget>
  <resources>
-  <include location="../bitcoin.qrc"/>
+  <include location="../foxcoin.qrc"/>
  </resources>
  <connections>
   <connection>

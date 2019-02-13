@@ -210,7 +210,7 @@
      <item>
       <widget class="QFrame" name="verticalFrame">
        <property name="styleSheet">
-        <string notr="true">image: url(:/icons/bitcoin);</string>
+        <string notr="true">image: url(:/icons/foxcoin);</string>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
@@ -312,7 +312,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../bitcoin.qrc"/>
+  <include location="../foxcoin.qrc"/>
  </resources>
  <connections/>
 </ui>

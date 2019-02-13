@@ -1,8 +1,8 @@
 #ifndef QTIPCSERVER_H
 #define QTIPCSERVER_H
 
-// Define Bitcoin-Qt message queue name
-#define BITCOINURI_QUEUE_NAME "BitcoinURI"
+// Define Foxcoin-Qt message queue name
+#define FOXCOINURI_QUEUE_NAME "FoxcoinURI"
 
 void ipcInit();
 

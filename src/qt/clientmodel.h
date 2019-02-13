@@ -13,7 +13,7 @@ class QDateTime;
 class QTimer;
 QT_END_NAMESPACE
 
-/** Model for Bitcoin network client. */
+/** Model for Foxcoin network client. */
 class ClientModel : public QObject
 {
     Q_OBJECT
@@ -51,9 +51,7 @@ public:
     QString getMiningPassword() const;
     void setMiningPassword(QString password);
 
-    int GetNetworkHashPS(int lookup) const;
     int getHashrate() const;
-    double GetDifficulty() const;
     
     QDateTime getLastBlockDate() const;
 

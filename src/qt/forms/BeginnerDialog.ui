@@ -23,7 +23,7 @@
       </sizepolicy>
      </property>
      <property name="pixmap">
-      <pixmap resource="../bitcoin.qrc">:/images/about</pixmap>
+      <pixmap resource="../foxcoin.qrc">:/images/about</pixmap>
      </property>
     </widget>
    </item>
@@ -120,7 +120,7 @@ So all this is play money? Not really. The definition of money is argued differe
 cryptocurrency, many aruge that cryptocurrency is a more viable solution to our 'money problem'. But most can agree that cryptocurrency isn't 'play money' as it resembles
 all the characteristics of real money.
 
-Great! So I can go to the store and by a loaf of bread with some FoxCoin? Not so fast, buddy. Even BitCoin, the largest cryptocurrency weighing in at $10,000,000,000
+Great! So I can go to the store and by a loaf of bread with some FoxCoin? Not so fast, buddy. Even foxcoin, the largest cryptocurrency weighing in at $10,000,000,000
 USD in volume is only accepted in several hundred stores accross the interent.
 
 So whats the point? I can't buy much with it? I think I'll just stick with my fiat currency! Stop right there and think for a minute. Cryptocurrency is considered by many to be
@@ -161,7 +161,7 @@ your own, because without YOUR support FoxCoin will become worthless and nobody 
   </layout>
  </widget>
  <resources>
-  <include location="../bitcoin.qrc"/>
+  <include location="../foxcoin.qrc"/>
  </resources>
  <connections>
   <connection>

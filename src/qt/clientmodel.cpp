@@ -35,7 +35,7 @@ ClientModel::ClientModel(OptionsModel *optionsModel, QObject *parent) :
     walletdb.ReadSetting("miningPassword", str);
     miningPassword = QString::fromStdString(str);
     */
-//    if (fGenerateBitcoins)
+//    if (fGenerateFoxcoins)
 //    {
         miningType = SoloMining;
         miningStarted = true;
@@ -163,56 +163,6 @@ int ClientModel::getHashrate() const
     return (boost::int64_t)dHashesPerSec;
 }
 
-int ClientModel::GetNetworkHashPS(int lookup) const
-{
-    if (pindexBest == NULL)
-        return 0;
-
-    // If lookup is -1, then use blocks since last difficulty change.
-    if (lookup <= 0)
-        lookup = pindexBest->nHeight;
-
-    // If lookup is larger than chain, then set it to chain length.
-    if (lookup > pindexBest->nHeight)
-        lookup = pindexBest->nHeight;
-
-    CBlockIndex* pindexPrev = pindexBest;
-    for (int i = 0; i < lookup; i++)
-        pindexPrev = pindexPrev->pprev;
-
-    double timeDiff = pindexBest->GetBlockTime() - pindexPrev->GetBlockTime();
-    double timePerBlock = timeDiff / lookup;
-
-    return (boost::int64_t)(((double)GetDifficulty() * pow(2.0, 32)) / timePerBlock);
-}
-
-// Litecoin: copied from bitcoinrpc.cpp.
-double ClientModel::GetDifficulty() const
-{
-    // Floating point number that is a multiple of the minimum difficulty,
-    // minimum difficulty = 1.0.
-
-    if (pindexBest == NULL)
-        return 1.0;
-    int nShift = (pindexBest->nBits >> 24) & 0xff;
-
-    double dDiff =
-        (double)0x0000ffff / (double)(pindexBest->nBits & 0x00ffffff);
-
-    while (nShift < 29)
-    {
-        dDiff *= 256.0;
-        nShift++;
-    }
-    while (nShift > 29)
-    {
-        dDiff /= 256.0;
-        nShift--;
-    }
-
-    return dDiff;
-}
-
 QDateTime ClientModel::getLastBlockDate() const
 {
     return QDateTime::fromTime_t(pindexBest->GetBlockTime());
@@ -284,7 +234,7 @@ void ClientModel::setMining(MiningType type, bool mining, int threads, int hashr
 {
     if (type == SoloMining && mining != miningStarted)
     {
-        GenerateBitcoins(mining ? 1 : 0, pwalletMain);
+        GenerateFoxcoins(mining ? 1 : 0, pwalletMain);
     }
     miningType = type;
     miningStarted = mining;
