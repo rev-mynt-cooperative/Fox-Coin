@@ -1989,7 +1989,7 @@ bool CBlock::AcceptBlock()
     }
 
     // Check timestamp is not too far in the past
-    if (GetBlockTime() <= pindexPrev->GetBlockTime() - 30 * 60) {
+    if (nHeight >= 80000 && GetBlockTime() <= pindexPrev->GetBlockTime() - 30 * 60) {
         return error("AcceptBlock() : block's timestamp is too early compare to last block");
     }
 
